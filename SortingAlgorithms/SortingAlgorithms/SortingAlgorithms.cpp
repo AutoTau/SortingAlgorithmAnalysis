@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "IntroSortAlgorithm.h"
 #include "HeapSortAlgorithm.h"
+#include "QuickSortAlgorithm.h"
 
 using namespace std;
 
@@ -30,6 +31,7 @@ int LargeAlmostSortedArray[100000000];
 
 IntroSortAlgorithm A; 
 HeapSortAlgorithm H;
+QuickSortAlgorithm Q;
 
 
 // Generates an array with random elements
@@ -145,13 +147,36 @@ void HeapSortAlmostSorted(int n[], int num)
 	H.heapSort(n, num);
 }
 
+//////////////////////*****************************************////////////////////// 
+// Sorts the random array passed in
+void QuickSortRandom(int n[], int num)
+{
+	Q.quickSort(n, 0, num - 1);
+}
+
+// Sorts the half sorted array passed in
+void QuickSortHalfSorted(int n[], int num)
+{
+	Q.quickSort(n, 0, num - 1);
+}
+
+// Sorts the almost sorted array passed in
+void QuickSortAlmostSorted(int n[], int num)
+{
+	Q.quickSort(n, 0, num - 1);
+}
+//////////////////////*****************************************//////////////////////
+
+
+
 int main()
 {
-
+/*
 ///////////////////////////////// IntroSort section /////////////////////////////////////////////////////
 
 	// Generate the arrays we need in order to sort them with introsort
 	GenerateAllArrays();
+
 	// Random arrays : Sorting with introsort
 	cout << "Calling IntroSort on an array with random elements of length: " << smallValue << endl;
 	IntroSortRandom(SmallRandomSortingArray, smallValue);
@@ -221,8 +246,46 @@ int main()
 	cout << "Calling HeapSort on an almost sorted array of length: " << largeValue << endl;
 	HeapSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
-///////////////////////////////////////////////////////////////////////////////////////////////////
+	*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// QuickSort //////////////////////////////////////////////////
 
+	// Generate arrays in order to sort them with QuickSort
+	GenerateAllArrays();
+
+	// Arrays of random elements : sorting with QuickSort
+	cout << "Calling QuickSort on an array of random elements of length: " << smallValue << endl;
+	QuickSortRandom(SmallRandomSortingArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on an array of random elements of length: " << mediumValue << endl;
+	QuickSortRandom(MediumRandomSortingArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on an array of random elements of length: " << largeValue << endl;
+	QuickSortRandom(LargeRandomSortingArray, largeValue);
+
+	// Half sorted arrays : Sorting with QuickSort
+	cout << "Calling QuickSort on a half sorted array of length: " << smallValue << endl;
+	QuickSortHalfSorted(SmallHalfSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on a half sorted array of length: " << mediumValue << endl;
+	QuickSortHalfSorted(MediumHalfSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling HeapSort on a half sorted array of length: " << largeValue << endl;
+	HeapSortHalfSorted(LargeHalfSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+
+	// Almost sorted arrays : Sorting with QuickSort
+	cout << "Calling QuickSort on an almost sorted array of length: " << smallValue << endl;
+	QuickSortAlmostSorted(SmallAlmostSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on an almost sorted array of length: " << mediumValue << endl;
+	QuickSortAlmostSorted(MediumAlmostSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on an almost sorted array of length: " << largeValue << endl;
+	QuickSortAlmostSorted(LargeAlmostSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
     return 0;
 }
 
