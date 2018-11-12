@@ -1,0 +1,5 @@
+﻿  SortingAlgorithms.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+HeapSortAlgorithm.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  SortingAlgorithms.vcxproj -> C:\Users\Ben\Documents\Visual Studio 2015\Projects\SortingAlgorithms\Debug\SortingAlgorithms.exe
+  SortingAlgorithms.vcxproj -> C:\Users\Ben\Documents\Visual Studio 2015\Projects\SortingAlgorithms\Debug\SortingAlgorithms.pdb (Full PDB)
