@@ -6,6 +6,7 @@
 #include "IntroSortAlgorithm.h"
 #include "HeapSortAlgorithm.h"
 #include "QuickSortAlgorithm.h"
+#include "MergeSortAlgorithm.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ int LargeAlmostSortedArray[100000000];
 IntroSortAlgorithm A; 
 HeapSortAlgorithm H;
 QuickSortAlgorithm Q;
+MergeSortAlgorithm M;
 
 
 // Generates an array with random elements
@@ -166,6 +168,24 @@ void QuickSortAlmostSorted(int n[], int num)
 	Q.quickSort(n, 0, num - 1);
 }
 //////////////////////*****************************************//////////////////////
+// Sorts the random array passed in
+void MergeSortRandom(int n[], int num)
+{
+	M.mergeSort(n, 0, num - 1);
+}
+
+// Sorts the half sorted array passed in
+void MergeSortHalfSorted(int n[], int num)
+{
+	M.mergeSort(n, 0, num - 1);
+}
+
+// Sorts the almost sorted array passed in
+void MergeSortAlmostSorted(int n[], int num)
+{
+	M.mergeSort(n, 0, num - 1);
+}
+//////////////////////*****************************************//////////////////////
 
 
 
@@ -246,7 +266,7 @@ int main()
 	cout << "Calling HeapSort on an almost sorted array of length: " << largeValue << endl;
 	HeapSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
-	*/
+	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// QuickSort //////////////////////////////////////////////////
 
@@ -270,8 +290,8 @@ int main()
 	cout << "Calling QuickSort on a half sorted array of length: " << mediumValue << endl;
 	QuickSortHalfSorted(MediumHalfSortedArray, mediumValue);
 	cout << "Done sorting" << endl;
-	cout << "Calling HeapSort on a half sorted array of length: " << largeValue << endl;
-	HeapSortHalfSorted(LargeHalfSortedArray, largeValue);
+	cout << "Calling QuickSort on a half sorted array of length: " << largeValue << endl;
+	QuickSortHalfSorted(LargeHalfSortedArray, largeValue);
 	cout << "Done sorting" << endl;
 
 	// Almost sorted arrays : Sorting with QuickSort
@@ -284,8 +304,46 @@ int main()
 	cout << "Calling QuickSort on an almost sorted array of length: " << largeValue << endl;
 	QuickSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
-
+	*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////// MergeSort //////////////////////////////////////////////////
+
+	// Generate arrays in order to sort them with MergeSort
+	GenerateAllArrays();
+
+	// Arrays of random elements : sorting with MergeSort
+	cout << "CallingMergeSort on an array of random elements of length: " << smallValue << endl;
+	MergeSortRandom(SmallRandomSortingArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on an array of random elements of length: " << mediumValue << endl;
+	MergeSortRandom(MediumRandomSortingArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on an array of random elements of length: " << largeValue << endl;
+	MergeSortRandom(LargeRandomSortingArray, largeValue);
+
+	// Half sorted arrays : Sorting with QuickSort
+	cout << "Calling MergeSort on a half sorted array of length: " << smallValue << endl;
+	MergeSortHalfSorted(SmallHalfSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on a half sorted array of length: " << mediumValue << endl;
+	MergeSortHalfSorted(MediumHalfSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on a half sorted array of length: " << largeValue << endl;
+	MergeSortHalfSorted(LargeHalfSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+
+	// Almost sorted arrays : Sorting with QuickSort
+	cout << "Calling MergeSort on an almost sorted array of length: " << smallValue << endl;
+	MergeSortAlmostSorted(SmallAlmostSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on an almost sorted array of length: " << mediumValue << endl;
+	MergeSortAlmostSorted(MediumAlmostSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on an almost sorted array of length: " << largeValue << endl;
+	MergeSortAlmostSorted(LargeAlmostSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
     return 0;
 }
 
