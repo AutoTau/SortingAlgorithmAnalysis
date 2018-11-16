@@ -1,3 +1,15 @@
+/**************************************************************************
+
+
+Implementation file for the HeapSortAlgorithm class.
+Code was taken and adapted from : https://www.geeksforgeeks.org/merge-sort/
+to be used in benchmarking and informal analysis.
+
+
+**************************************************************************/
+
+
+
 #include "stdafx.h"
 #include "MergeSortAlgorithm.h"
 #include <stdlib.h> 

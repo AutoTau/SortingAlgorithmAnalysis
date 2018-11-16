@@ -1,3 +1,14 @@
+/**************************************************************************
+
+
+Implementation file for the HeapSortAlgorithm class.
+Code was taken and adapted from : https://www.geeksforgeeks.org/quick-sort/
+to be used in benchmarking and informal analysis.
+
+
+**************************************************************************/
+
+
 #include "stdafx.h"
 #include <iostream>
 #include "QuickSortAlgorithm.h"
