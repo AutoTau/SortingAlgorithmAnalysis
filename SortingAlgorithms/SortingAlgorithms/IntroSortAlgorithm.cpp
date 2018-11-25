@@ -2,7 +2,6 @@
 
 	The code for this algorithm was taken and adapted from : 
 	https://www.geeksforgeeks.org/know-your-sorting-algorithm-set-2-introsort-cs-sorting-weapon/
-
 	IntroSort utilizes quicksort, InsertionSort, and Heapsort
 
 */
