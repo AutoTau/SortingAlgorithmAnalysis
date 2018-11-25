@@ -13,22 +13,28 @@ using namespace std;
 // The sizes we will use for our arrays 
 int smallValue	= 500000;  // 500 thousand 
 int mediumValue = 5000000; // 5 million
-int largeValue	= 100000000; // 100 million
+int largeValue	= 50000000; // 50 million
 
 // These arrays will be generated with random elements
 int SmallRandomSortingArray[500000];
 int MediumRandomSortingArray[5000000];
-int LargeRandomSortingArray[100000000];
+int LargeRandomSortingArray[50000000];
 
 // These arrays will be generated half sorted
 int SmallHalfSortedArray[500000];
 int MediumHalfSortedArray[5000000];
-int LargeHalfSortedArray[100000000];
+int LargeHalfSortedArray[50000000];
 
 // These arrays will be "almost" sorted, with only 50 elements at the end being unsorted
 int SmallAlmostSortedArray[500000];
 int MediumAlmostSortedArray[5000000];
-int LargeAlmostSortedArray[100000000];
+int LargeAlmostSortedArray[50000000];
+
+// These arrays will be sorted in largest to smallest, Worst case
+int SmallWorstArray[500000];
+int MediumWorstArray[5000000];
+int LargeWorstArray[50000000];
+
 
 IntroSortAlgorithm A; 
 HeapSortAlgorithm H;
@@ -77,6 +83,16 @@ void GenerateAlmostSortedArray(int n[], int num)
 	}
 }
 
+// Generate the worst cast scenario of sorted in decending order.
+void GenerateWorstCaseArray(int n[], int num)
+{
+	for (int idx = num; idx > 0; --idx)
+	{
+		n[num - idx] = idx;
+	}
+
+}
+
 // Prints an array
 void PrintArray(int n[], int num)
 {
@@ -100,6 +116,10 @@ void GenerateAllArrays()
 	GenerateAlmostSortedArray(SmallAlmostSortedArray, smallValue);
 	GenerateAlmostSortedArray(MediumAlmostSortedArray, mediumValue);
 	GenerateAlmostSortedArray(LargeAlmostSortedArray, largeValue);
+
+	GenerateWorstCaseArray(SmallWorstArray, smallValue);
+	GenerateWorstCaseArray(MediumWorstArray, mediumValue);
+	GenerateWorstCaseArray(LargeWorstArray, largeValue);
 }
 
 // We will be using different functions for each
@@ -131,6 +151,13 @@ void IntroSortAlmostSorted(int n[], int num)
 	A.Introsort(n, n, n + num - 1);
 }
 
+void IntroSortWorstCase(int n[], int num)
+{
+	// Pass the array, the pointer to the first element and  
+	// the pointer to the last element 
+	A.Introsort(n, n, n + num - 1);
+}
+
 // Sorts the random array passed in
 void HeapSortRandom(int n[], int num)
 {
@@ -147,6 +174,14 @@ void HeapSortHalfSorted(int n[], int num)
 void HeapSortAlmostSorted(int n[], int num)
 {
 	H.heapSort(n, num);
+
+}
+
+//Sorting the worst case possible.
+void HeapSortWorstCase(int n[], int num) {
+
+	H.heapSort(n, num);
+
 }
 
 //////////////////////*****************************************////////////////////// 
@@ -167,6 +202,13 @@ void QuickSortAlmostSorted(int n[], int num)
 {
 	Q.quickSort(n, 0, num - 1);
 }
+
+//Sorting the worst case possible.
+void QuickSortWorstCase(int n[], int num) {
+
+	Q.quickSort(n, 0, num - 1);
+
+}
 //////////////////////*****************************************//////////////////////
 // Sorts the random array passed in
 void MergeSortRandom(int n[], int num)
@@ -185,18 +227,25 @@ void MergeSortAlmostSorted(int n[], int num)
 {
 	M.mergeSort(n, 0, num - 1);
 }
+
+//Sorting the worst case possible.
+void MergeSortWorstCase(int n[], int num) {
+	
+	M.mergeSort(n, 0, num - 1);
+
+}
 //////////////////////*****************************************//////////////////////
 
 
 
 int main()
 {
-/*
+
 ///////////////////////////////// IntroSort section /////////////////////////////////////////////////////
 
 	// Generate the arrays we need in order to sort them with introsort
 	GenerateAllArrays();
-
+	/*
 	// Random arrays : Sorting with introsort
 	cout << "Calling IntroSort on an array with random elements of length: " << smallValue << endl;
 	IntroSortRandom(SmallRandomSortingArray, smallValue);
@@ -229,7 +278,18 @@ int main()
 	cout << "Calling IntroSort on an almost sorted array of length: " << largeValue << endl;
 	IntroSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
-
+	*/
+	// Descending arrays : Sorting with IntroSort
+	cout << "Calling IntroSort on a descending sorted array of length: " << smallValue << endl;
+	IntroSortWorstCase(SmallAlmostSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling IntroSort on a descending sorted array of length: " << mediumValue << endl;
+	IntroSortWorstCase(MediumAlmostSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling IntroSort on a descending sorted array of length: " << largeValue << endl;
+	IntroSortWorstCase(LargeAlmostSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+	/*
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 /////////////////////////////////////// HeapSort Section ///////////////////////////////////////////////////
 
@@ -266,6 +326,19 @@ int main()
 	cout << "Calling HeapSort on an almost sorted array of length: " << largeValue << endl;
 	HeapSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
+
+	// Descending arrays : Sorting with HeapSort
+	cout << "Calling HeapSort on a descending sorted array of length: " << smallValue << endl;
+	HeapSortWorstCase(SmallAlmostSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling HeapSort on a descending sorted array of length: " << mediumValue << endl;
+	HeapSortWorstCase(MediumAlmostSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling HeapSort on a descending sorted array of length: " << largeValue << endl;
+	HeapSortWorstCase(LargeAlmostSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+
+
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// QuickSort //////////////////////////////////////////////////
@@ -304,7 +377,19 @@ int main()
 	cout << "Calling QuickSort on an almost sorted array of length: " << largeValue << endl;
 	QuickSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
-	*/
+
+		// Descending arrays : Sorting with QuickSort
+	cout << "Calling QuickSort on a descending sorted array of length: " << smallValue << endl;
+	QuickSortWorstCase(SmallAlmostSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on a descending sorted array of length: " << mediumValue << endl;
+	QuickSortWorstCase(MediumAlmostSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling QuickSort on a descending sorted array of length: " << largeValue << endl;
+	QuickSortWorstCase(LargeAlmostSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////// MergeSort //////////////////////////////////////////////////
 
@@ -321,7 +406,7 @@ int main()
 	cout << "Calling MergeSort on an array of random elements of length: " << largeValue << endl;
 	MergeSortRandom(LargeRandomSortingArray, largeValue);
 
-	// Half sorted arrays : Sorting with QuickSort
+	// Half sorted arrays : Sorting with MergeSort
 	cout << "Calling MergeSort on a half sorted array of length: " << smallValue << endl;
 	MergeSortHalfSorted(SmallHalfSortedArray, smallValue);
 	cout << "Done sorting" << endl;
@@ -332,7 +417,7 @@ int main()
 	MergeSortHalfSorted(LargeHalfSortedArray, largeValue);
 	cout << "Done sorting" << endl;
 
-	// Almost sorted arrays : Sorting with QuickSort
+	// Almost sorted arrays : Sorting with MergeSort
 	cout << "Calling MergeSort on an almost sorted array of length: " << smallValue << endl;
 	MergeSortAlmostSorted(SmallAlmostSortedArray, smallValue);
 	cout << "Done sorting" << endl;
@@ -343,6 +428,17 @@ int main()
 	MergeSortAlmostSorted(LargeAlmostSortedArray, largeValue);
 	cout << "Done sorting" << endl;
 
+	// Descending arrays : Sorting with MergeSort
+	cout << "Calling MergeSort on a descending sorted array of length: " << smallValue << endl;
+	MergeSortWorstCase(SmallAlmostSortedArray, smallValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on a descending sorted array of length: " << mediumValue << endl;
+	MergeSortWorstCase(MediumAlmostSortedArray, mediumValue);
+	cout << "Done sorting" << endl;
+	cout << "Calling MergeSort on a descending sorted array of length: " << largeValue << endl;
+	MergeSortWorstCase(LargeAlmostSortedArray, largeValue);
+	cout << "Done sorting" << endl;
+	*/
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
     return 0;
 }
