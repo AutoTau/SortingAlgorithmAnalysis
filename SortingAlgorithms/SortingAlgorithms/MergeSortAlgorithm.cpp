@@ -80,6 +80,8 @@ void MergeSortAlgorithm::merge(int arr[], int l, int m, int r)
 		j++;
 		k++;
 	}
+	delete[] L;
+	delete[] R;
 }
 
 /* l is for left index and r is right index of the
