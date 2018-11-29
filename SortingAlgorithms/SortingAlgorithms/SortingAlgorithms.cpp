@@ -59,12 +59,14 @@ void GenerateHalfSortedArray(int n[], int num)
 	for (int idx = 0; idx < num / 2; idx++)
 	{
 		n[idx] = idx;
+
 	}
 
 	// The second half of the array will be random
 	for (int idx = num / 2; idx < num; idx++)
 	{
 		n[idx] = rand();
+
 	}
 }
 
@@ -97,7 +99,7 @@ void GenerateWorstCaseArray(int n[], int num)
 // Prints an array
 void PrintArray(int n[], int num)
 {
-	for (int idx = 0; idx < num; idx++)
+	for (int idx = num - 50; idx < num; idx++)
 	{
 		cout << n[idx] << " ";
 	}
@@ -459,7 +461,7 @@ int main()
 ///////////////////////////////////////// QuickSort //////////////////////////////////////////////////
 //
 //	// Generate arrays in order to sort them with QuickSort
-//	GenerateAllArrays();
+	GenerateAllArrays();
 //
 //	// Arrays of random elements : sorting with QuickSort
 //	cout << "Calling QuickSort on an array of random elements of length: " << smallValue << endl;
@@ -487,29 +489,29 @@ int main()
 	//cout << duration << endl;
 
 	// Half sorted arrays : Sorting with QuickSort
-	/*cout << "Calling QuickSort on a half sorted array of length: " << smallValue << endl;
+	//cout << "Calling QuickSort on a half sorted array of length: " << smallValue << endl;
+	//t1 = high_resolution_clock::now();
+	//QuickSortHalfSorted(SmallHalfSortedArray, smallValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+
+	cout << "Calling QuickSort on a half sorted array of length: " << mediumValue << endl;
 	t1 = high_resolution_clock::now();
-	QuickSortHalfSorted(SmallHalfSortedArray, smallValue);
+	QuickSortHalfSorted(MediumHalfSortedArray, mediumValue);
+	t2 = high_resolution_clock::now();
+	duration = duration_cast<milliseconds>(t2 - t1).count();
+	cout << "Done sorting" << endl;
+	cout << duration << endl;
+
+	/*cout << "Calling QuickSort on a half sorted array of length: " << largeValue << endl;
+	t1 = high_resolution_clock::now();
+	QuickSortHalfSorted(LargeHalfSortedArray, largeValue);
 	t2 = high_resolution_clock::now();
 	duration = duration_cast<milliseconds>(t2 - t1).count();
 	cout << "Done sorting" << endl;
 	cout << duration << endl;*/
-
-	//cout << "Calling QuickSort on a half sorted array of length: " << mediumValue << endl;
-	//t1 = high_resolution_clock::now();
-	//QuickSortHalfSorted(MediumHalfSortedArray, mediumValue);
-	//t2 = high_resolution_clock::now();
-	//duration = duration_cast<milliseconds>(t2 - t1).count();
-	//cout << "Done sorting" << endl;
-	//cout << duration << endl;
-
-	//cout << "Calling QuickSort on a half sorted array of length: " << largeValue << endl;
-	//t1 = high_resolution_clock::now();
-	//QuickSortHalfSorted(LargeHalfSortedArray, largeValue);
-	//t2 = high_resolution_clock::now();
-	//duration = duration_cast<milliseconds>(t2 - t1).count();
-	//cout << "Done sorting" << endl;
-	//cout << duration << endl;
 
 	//// Almost sorted arrays : Sorting with QuickSort
 	//cout << "Calling QuickSort on an almost sorted array of length: " << smallValue << endl;
@@ -537,136 +539,136 @@ int main()
 	//cout << duration << endl;
 
 	//// Descending arrays : Sorting with QuickSort
-	//cout << "Calling QuickSort on a descending sorted array of length: " << smallValue << endl;
+	//cout << "Calling QuickSort on a descending  array of length: " << smallValue << endl;
 	//t1 = high_resolution_clock::now();
-	//QuickSortWorstCase(SmallAlmostSortedArray, smallValue);
+	//QuickSortWorstCase(SmallWorstArray, smallValue);
 	//t2 = high_resolution_clock::now();
 	//duration = duration_cast<milliseconds>(t2 - t1).count();
 	//cout << "Done sorting" << endl;
 	//cout << duration << endl;
 	//
-	//cout << "Calling QuickSort on a descending sorted array of length: " << mediumValue << endl;
+	//cout << "Calling QuickSort on a descending  array of length: " << mediumValue << endl;
 	//t1 = high_resolution_clock::now();
-	//QuickSortWorstCase(MediumAlmostSortedArray, mediumValue);
+	//QuickSortWorstCase(MediumWorstArray, mediumValue);
 	//t2 = high_resolution_clock::now();
 	//duration = duration_cast<milliseconds>(t2 - t1).count();
 	//cout << "Done sorting" << endl;
 	//cout << duration << endl;
-	
-	/*cout << "Calling QuickSort on a descending sorted array of length: " << largeValue << endl;
-	t1 = high_resolution_clock::now();
-	QuickSortWorstCase(LargeAlmostSortedArray, largeValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;*/
+	//
+	//cout << "Calling QuickSort on a descending  array of length: " << largeValue << endl;
+	//t1 = high_resolution_clock::now();
+	//QuickSortWorstCase(LargeWorstArray, largeValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////// MergeSort //////////////////////////////////////////////////
 
-	// Generate arrays in order to sort them with MergeSort
-	GenerateAllArrays();
+	//// Generate arrays in order to sort them with MergeSort
+	//GenerateAllArrays();
 
-	// Arrays of random elements : sorting with MergeSort
-	cout << "CallingMergeSort on an array of random elements of length: " << smallValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortRandom(SmallRandomSortingArray, smallValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on an array of random elements of length: " << mediumValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortRandom(MediumRandomSortingArray, mediumValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on an array of random elements of length: " << largeValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortRandom(LargeRandomSortingArray, largeValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
+	//// Arrays of random elements : sorting with MergeSort
+	//cout << "CallingMergeSort on an array of random elements of length: " << smallValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortRandom(SmallRandomSortingArray, smallValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on an array of random elements of length: " << mediumValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortRandom(MediumRandomSortingArray, mediumValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on an array of random elements of length: " << largeValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortRandom(LargeRandomSortingArray, largeValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
 
-	// Half sorted arrays : Sorting with MergeSort
-	cout << "Calling MergeSort on a half sorted array of length: " << smallValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortHalfSorted(SmallHalfSortedArray, smallValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on a half sorted array of length: " << mediumValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortHalfSorted(MediumHalfSortedArray, mediumValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on a half sorted array of length: " << largeValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortHalfSorted(LargeHalfSortedArray, largeValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
+	//// Half sorted arrays : Sorting with MergeSort
+	//cout << "Calling MergeSort on a half sorted array of length: " << smallValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortHalfSorted(SmallHalfSortedArray, smallValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on a half sorted array of length: " << mediumValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortHalfSorted(MediumHalfSortedArray, mediumValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on a half sorted array of length: " << largeValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortHalfSorted(LargeHalfSortedArray, largeValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
 
-	// Almost sorted arrays : Sorting with MergeSort
-	cout << "Calling MergeSort on an almost sorted array of length: " << smallValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortAlmostSorted(SmallAlmostSortedArray, smallValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on an almost sorted array of length: " << mediumValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortAlmostSorted(MediumAlmostSortedArray, mediumValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on an almost sorted array of length: " << largeValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortAlmostSorted(LargeAlmostSortedArray, largeValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
+	//// Almost sorted arrays : Sorting with MergeSort
+	//cout << "Calling MergeSort on an almost sorted array of length: " << smallValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortAlmostSorted(SmallAlmostSortedArray, smallValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on an almost sorted array of length: " << mediumValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortAlmostSorted(MediumAlmostSortedArray, mediumValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on an almost sorted array of length: " << largeValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortAlmostSorted(LargeAlmostSortedArray, largeValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
 
-	// Descending arrays : Sorting with MergeSort
-	cout << "Calling MergeSort on a descending sorted array of length: " << smallValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortWorstCase(SmallAlmostSortedArray, smallValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
-	
-	cout << "Calling MergeSort on a descending sorted array of length: " << mediumValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortWorstCase(MediumAlmostSortedArray, mediumValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;
+	//// Descending arrays : Sorting with MergeSort
+	//cout << "Calling MergeSort on a descending sorted array of length: " << smallValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortWorstCase(SmallAlmostSortedArray, smallValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
+	//
+	//cout << "Calling MergeSort on a descending sorted array of length: " << mediumValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortWorstCase(MediumAlmostSortedArray, mediumValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;
 
-	cout << "Calling MergeSort on a descending sorted array of length: " << largeValue << endl;
-	t1 = high_resolution_clock::now();
-	MergeSortWorstCase(LargeAlmostSortedArray, largeValue);
-	t2 = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(t2 - t1).count();
-	cout << "Done sorting" << endl;
-	cout << duration << endl;	
+	//cout << "Calling MergeSort on a descending sorted array of length: " << largeValue << endl;
+	//t1 = high_resolution_clock::now();
+	//MergeSortWorstCase(LargeAlmostSortedArray, largeValue);
+	//t2 = high_resolution_clock::now();
+	//duration = duration_cast<milliseconds>(t2 - t1).count();
+	//cout << "Done sorting" << endl;
+	//cout << duration << endl;	
 	
 	while (1)
 	{

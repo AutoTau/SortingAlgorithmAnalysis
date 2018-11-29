@@ -12,7 +12,7 @@ public:
 	
 	int partition(int arr[], int low, int high);
 	void quickSort(int arr[], int low, int high);
-	void swap(int* a, int* b);
+	//void swap(int* a, int* b);
 
 	//Provided Destructor
 	~QuickSortAlgorithm();
